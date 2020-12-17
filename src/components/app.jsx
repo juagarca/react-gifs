@@ -8,16 +8,7 @@ class App extends Component {
   render() {
     const gifs = [
       { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'wUdz3pB1wAMhNgPLzn' }
+      { id: 'BBFJQKmBF8ACc' },
     ];
 
     return (
