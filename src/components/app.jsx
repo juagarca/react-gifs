@@ -11,7 +11,7 @@ class App extends Component {
 
     this.state = {
       gifs: [],
-      selectedGif: "BEob5qwFkSJ7G"
+      selectedGif: ""
     };
   }
 
@@ -36,12 +36,14 @@ class App extends Component {
   }
 
   render() {
+    const image = this.state.selectedGif !== "";
+
     return (
       <div>
         <div className="left-scene">
           <SearchBar search={this.fetchGifs} />
           <div className="selected-gif">
-            <Gif id={this.state.selectedGif} />
+            { image && <Gif id={this.state.selectedGif} />}
           </div>
         </div>
         <div className="right-scene">
