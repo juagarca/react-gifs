@@ -6,6 +6,17 @@ import GifList from './gif_list';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      gifs: [],
+      selectedGif: "wUdz3pB1wAMhNgPLzn"
+    };
+    this.fetchGifs("");
+    console.log(this.state);
+  }
+
 
   fetchGifs = (word) => {
     const key = "g8kdTGU1YAtC5zf00r9qu9TlTJYo7NyG";
@@ -14,26 +25,25 @@ class App extends Component {
     fetch(url)
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
+        const gifsArray = data.data;
+        this.setState({
+          gifs: gifsArray
+        });
       });
   }
 
   render() {
-    const gifs = [
-      { id: 'wUdz3pB1wAMhNgPLzn' },
-      { id: 'BBFJQKmBF8ACc' },
-    ];
 
     return (
       <div>
         <div className="left-scene">
-          <SearchBar />
+          <SearchBar search={this.fetchGifs} />
           <div className="selected-gif">
-            <Gif id="wUdz3pB1wAMhNgPLzn" />
+            <Gif id={this.state.selectedGif} />
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={gifs} />
+          <GifList gifs={this.state.gifs} />
         </div>
       </div>
     );

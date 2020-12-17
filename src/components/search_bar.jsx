@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
   handleChange = (event) => {
     const word = event.currentTarget.value;
+    this.props.search(word);
   }
 
   render() {
