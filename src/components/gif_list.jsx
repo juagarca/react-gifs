@@ -5,7 +5,7 @@ import Gif from './gif';
 class GifList extends Component {
   renderList = () => {
     return this.props.gifs.map((gif) => {
-      return <Gif id={gif.id} key={gif.id} />;
+      return <Gif id={gif.id} key={gif.id} changeSelectedGif={this.props.changeSelectedGif} />;
     });
   }
 
@@ -16,7 +16,7 @@ class GifList extends Component {
           this.renderList()
         }
       </div>
-    )
+    );
   }
 }
 

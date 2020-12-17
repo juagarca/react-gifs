@@ -11,12 +11,9 @@ class App extends Component {
 
     this.state = {
       gifs: [],
-      selectedGif: "wUdz3pB1wAMhNgPLzn"
+      selectedGif: "BEob5qwFkSJ7G"
     };
-    this.fetchGifs("");
-    console.log(this.state);
   }
-
 
   fetchGifs = (word) => {
     const key = "g8kdTGU1YAtC5zf00r9qu9TlTJYo7NyG";
@@ -32,8 +29,13 @@ class App extends Component {
       });
   }
 
-  render() {
+  changeSelectedGif = (id) => {
+    this.setState({
+      selectedGif: id
+    });
+  }
 
+  render() {
     return (
       <div>
         <div className="left-scene">
@@ -43,11 +45,13 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} changeSelectedGif={this.changeSelectedGif} />
         </div>
       </div>
     );
   }
 }
+
+//
 
 export default App;
