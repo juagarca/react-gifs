@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       gifs: [],
       selectedGif: "",
-      overlay: true
+      overlay: false
     };
   }
 
@@ -56,6 +56,7 @@ class App extends Component {
     return (
       <div>
         <div className="left-scene">
+          <div className="searchIcon">🔍</div>
           <div className={this.addOverlay()}>
             <SearchBar search={this.fetchGifs} changeOverlay={this.changeOverlay} />
             <div className="selected-gif">
@@ -64,9 +65,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <div className={this.addOverlay()}>
-            <GifList gifs={this.state.gifs} changeSelectedGif={this.changeSelectedGif} />
-          </div>
+          <GifList gifs={this.state.gifs} changeSelectedGif={this.changeSelectedGif} />
         </div>
       </div>
     );
