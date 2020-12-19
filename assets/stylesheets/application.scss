@@ -11,9 +11,8 @@
 
   .form-search {
     padding: 60px 60px 60px 120px;
-    border: 1px solid #EAE7EE;
+    border: none;
     font-size: 2.6em;
-    box-shadow: 1px 1px #EAE7EE;
     &:focus {
       box-shadow: none;
     }
@@ -42,11 +41,13 @@
 .right-scene {
   flex: 0 0 40%;
   overflow: scroll;
+  background-color: rgba(234,231,238, 0.6);
 
   .gif-list {
     column-count: 2;
     column-gap: 5px;
     padding: 5px;
+
 
     .gif {
       width: 100%;
@@ -58,7 +59,7 @@
 
 .overlay {
   min-height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(234,231,238, 0.6);
 }
 
 .searchIcon {
