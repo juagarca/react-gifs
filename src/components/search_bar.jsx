@@ -6,9 +6,17 @@ class SearchBar extends Component {
     this.props.search(word);
   }
 
+  handleFocus = () => {
+    this.props.changeOverlay(true);
+  }
+
+  handleBlur = () => {
+    this.props.changeOverlay(false);
+  }
+
   render() {
     return (
-      <input type="text" className="form-search form-control" onChange={this.handleChange} />
+      <input type="text" className="form-search form-control" onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} />
     );
   }
 }

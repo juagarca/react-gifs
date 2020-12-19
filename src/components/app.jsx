@@ -11,7 +11,8 @@ class App extends Component {
 
     this.state = {
       gifs: [],
-      selectedGif: ""
+      selectedGif: "",
+      overlay: true
     };
   }
 
@@ -35,19 +36,37 @@ class App extends Component {
     });
   }
 
+  changeOverlay = (value) => {
+    this.setState({
+      overlay: value
+    });
+  }
+
+  addOverlay = () => {
+    let overlayClass = "";
+    if (this.state.overlay) {
+      overlayClass = "overlay";
+    }
+    return overlayClass;
+  }
+
   render() {
     const image = this.state.selectedGif !== "";
 
     return (
       <div>
         <div className="left-scene">
-          <SearchBar search={this.fetchGifs} />
-          <div className="selected-gif">
-            { image && <Gif id={this.state.selectedGif} />}
+          <div className={this.addOverlay()}>
+            <SearchBar search={this.fetchGifs} changeOverlay={this.changeOverlay} />
+            <div className="selected-gif">
+              { image && <Gif id={this.state.selectedGif} />}
+            </div>
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} changeSelectedGif={this.changeSelectedGif} />
+          <div className={this.addOverlay()}>
+            <GifList gifs={this.state.gifs} changeSelectedGif={this.changeSelectedGif} />
+          </div>
         </div>
       </div>
     );
